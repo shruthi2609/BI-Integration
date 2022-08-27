@@ -21,7 +21,7 @@ server.use('/', findTask)
 server.use('/', deleteTask)
 server.use('/',updateTask)
 server.get("/*", function (req, res) {
-    res.sendFile(path.join('client', "build", "index.html"));
+    res.sendFile(path.resolve('../client/build/favicon.ico'));
     });
 
 server.listen(process.env.port||port, () => console.log('server started'))
