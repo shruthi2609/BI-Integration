@@ -2,9 +2,12 @@ const express = require('express')
 const server = express()
 const bp = require("body-parser")
 const cors=require('cors')
+const path=require('path')
 const favicon = require("serve-favicon");
-app.use(favicon(path.join('../client', "build", "favicon.ico")));
-app.use(express.static(path.join('../client', "build")));
+//server.use(favicon(path.join(__dirname,'client', "build", "favicon.ico")));
+server.use(favicon(path.resolve('../client/build/favicon.ico')))
+//server.use(express.static(path.join(__dirname,'/client', "build")));
+server.use(express.static(path.resolve('../client/build/favicon.ico')));
 server.use(bp.json())
 server.use(cors())
 // deploy
@@ -18,7 +21,7 @@ server.use('/', findTask)
 server.use('/', deleteTask)
 server.use('/',updateTask)
 server.get("/*", function (req, res) {
-    res.sendFile(path.join('../client', "build", "index.html"));
+    res.sendFile(path.join('client', "build", "index.html"));
     });
 
 server.listen(process.env.port||port, () => console.log('server started'))
