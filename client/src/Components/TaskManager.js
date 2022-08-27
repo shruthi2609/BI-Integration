@@ -8,7 +8,7 @@ const TaskManager=()=>{
     const [taskname,settaskname]=useState("")
     const [taskid,settaskid]=useState()
     const [stalker,setStalker]=useState(false)
-    let base = process.env.REACT_APP_API_URL || "http://localhost:3001";
+    let base = "https://taskmanager-js-bi.herokuapp.com/" || "http://localhost:3001";
     useEffect(()=>{
         axios.get(`${base}/getalltask`).then((res)=>{
         setStalker(false)
