@@ -2,13 +2,15 @@ import {useEffect, useState} from 'react'
 import axios from "axios"
 import PendingComponent from './PendingComponent'
 import CompletedComponent from './CompletedComponent'
+
 const TaskManager=()=>{
     const [tododata,setData]=useState([])
     const [taskname,settaskname]=useState("")
     const [taskid,settaskid]=useState()
     const [stalker,setStalker]=useState(false)
+    let base = process.env.baseURL || "http://localhost:3001";
     useEffect(()=>{
-        axios.get('/getalltask').then((res)=>{
+        axios.get(`${base}/getalltask`).then((res)=>{
         setStalker(false)
         setData(res.data)}).catch((e)=>console.log(e))
     },[stalker])
@@ -28,7 +30,7 @@ const TaskManager=()=>{
     }
     const handleCreate=(e)=>{
         e.preventDefault()
-        axios.post('/createtask',{
+        axios.post(`${base}/createtask`,{
             taskid:taskid,
             taskname:taskname,
             completionstatus:false
@@ -38,7 +40,7 @@ const TaskManager=()=>{
     }
     const changeCompletion=(e,taskid)=>{
         e.preventDefault()
-        axios.get(`/changecompletion/${taskid}`).then((res)=>setStalker(true)).catch((e)=>console.log(e))
+        axios.get(`${base}/changecompletion/${taskid}`).then((res)=>setStalker(true)).catch((e)=>console.log(e))
     }
     return(
         <div>
