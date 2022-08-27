@@ -14,5 +14,10 @@ server.use('/', createTask)
 server.use('/', findTask)
 server.use('/', deleteTask)
 server.use('/',updateTask)
-
+server,get('/',(req,res)=>{
+    res.send('empty')
+})
+server,get('/favicon.ico',(req,res)=>{
+    res.send('empty')
+})
 server.listen(process.env.port||port, () => console.log('server started'))
