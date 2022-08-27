@@ -24,4 +24,4 @@ server.get("/*", function (req, res) {
     res.sendFile(path.join(__dirname,'client', "build", "favicon.ico"));
 });
 const host = '0.0.0.0';
-server.listen(process.env.port||port,host, () => console.log('server started'))
+server.listen(process.env.PORT||port,host, () => console.log('server started'))
