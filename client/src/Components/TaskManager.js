@@ -11,6 +11,7 @@ const TaskManager=()=>{
     let base = "https://taskmanager-js-bi.herokuapp.com/" || "http://localhost:3001";
     useEffect(()=>{
         axios.get(`${base}/getalltask`).then((res)=>{
+            console.log(res)
         setStalker(false)
         setData(res.data)}).catch((e)=>console.log(e))
     },[stalker])
