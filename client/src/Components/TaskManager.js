@@ -8,7 +8,7 @@ const TaskManager=()=>{
     const [taskname,settaskname]=useState("")
     const [taskid,settaskid]=useState()
     const [stalker,setStalker]=useState(false)
-    let base = "https://taskmanager-js-bi.herokuapp.com/" || "http://localhost:3001";
+   
     useEffect(()=>{
         axios.get(`/getalltask`).then((res)=>{
             console.log(res)
@@ -45,6 +45,7 @@ const TaskManager=()=>{
     }
     return(
         <div>
+            <h1>Hy there</h1>
             <form>
                 Enter Taskname:<input type='text' onChange={(e)=>handleName(e)}></input>
                 Enter id:<input type='number' onChange={(e)=>handleId(e)}></input>
