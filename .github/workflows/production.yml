@@ -18,7 +18,7 @@ jobs:
       - run: npm install
       - run: npm run build --if-present
       - name: Deploy to Heroku
-        uses: shruthi2609/heroku-deploy@v3.12.12
+        uses: shruthi2609/BI-Integration/tree/main
         with:
           heroku_api_key: ${{ secrets.HEROKU_APP_KEY }}
           heroku_app_name: 'taskmanager-js-bi'
