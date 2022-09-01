@@ -45,7 +45,7 @@ const TaskManager=()=>{
     }
     return(
         <div>
-            <h1>Hy there</h1>
+            <h1>Hello there</h1>
             <form>
                 Enter Taskname:<input type='text' onChange={(e)=>handleName(e)}></input>
                 Enter id:<input type='number' onChange={(e)=>handleId(e)}></input>
